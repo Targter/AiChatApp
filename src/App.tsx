@@ -1,11 +1,12 @@
-import { BrowserRouter as Router, Routes, Route, Navigate, useNavigate } from 'react-router-dom';
-import Page1 from './page/page1';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Pagecon from './page/Pagecon';
 import RegisterUser from "./components/RegisterUser"
 import Login from "./components/Login"
 // import 'regenerator-runtime/runtime';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import ResetPasswordPage from "./components/ResetPasswordPage";
+import ResetPasswordPage from "/src/components/ResetPasswordPage";
+// src\page\Page1.tsx
 
 function App() {
 
@@ -18,7 +19,7 @@ function App() {
             <Route path="/Login" element={<Login/>} />
             <Route path="/ForgetPassword" element={<ResetPasswordPage/>} />
             <Route path="/"
-            element={<Page1 /> }
+            element={<Pagecon /> }
           />
           </Routes>
     </Router>

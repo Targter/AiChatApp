@@ -14,7 +14,7 @@ import axios from 'axios';
       if (newTitle && newTitle.trim()) {
         updateChatTitle(chatId, newTitle.trim());
          try {
-              const response = await axios.put('http://localhost:3000/api/updateChatTitle', {
+              const response = await axios.put('https://aimarinebackend.vercel.app/api/updateChatTitle', {
                 userId: '67850c22fcb6d63f3c783042', // You can replace this with actual user ID
                 chatId,
                 newTitle,

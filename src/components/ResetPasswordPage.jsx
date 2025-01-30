@@ -18,7 +18,7 @@ function ResetPasswordPage() {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3000/forgetPassword",
+        "https://aimarinebackend.vercel.app/forgetPassword",
         { email }
       );
 
@@ -43,10 +43,13 @@ function ResetPasswordPage() {
     if (otp.length === 6) {
       try {
         console.log("this called", otp);
-        const response = await axios.post("http://localhost:3000/varifymail", {
-          email,
-          otp,
-        });
+        const response = await axios.post(
+          "https://aimarinebackend.vercel.app/varifymail",
+          {
+            email,
+            otp,
+          }
+        );
         console.log("response:", response);
         if (response.status === 200) {
           setOtpVerified(true);
@@ -73,7 +76,7 @@ function ResetPasswordPage() {
     if (newPassword === confirmPassword) {
       try {
         const response = await axios.post(
-          "http://localhost:3000/updatePassword",
+          "https://aimarinebackend.vercel.app/updatePassword",
           {
             email,
             newPassword,

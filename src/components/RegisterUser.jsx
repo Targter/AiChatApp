@@ -39,7 +39,7 @@ function RegisterUser() {
       if (name && email && password) {
         try {
           const response = await axios.post(
-            "http://localhost:3000/Register",
+            "https://aimarinebackend.vercel.app/Register",
             {
               email: email,
             },
@@ -69,7 +69,7 @@ function RegisterUser() {
       if (otp.length === 6) {
         try {
           const response = await axios.post(
-            "http://localhost:3000/verifyOtp",
+            "https://aimarinebackend.vercel.app/verifyOtp",
             {
               email: email,
               otp: otp,

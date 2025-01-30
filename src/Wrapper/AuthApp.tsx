@@ -12,7 +12,7 @@ const withAuthCheck = (WrappedComponent: React.ComponentType) => {
     useEffect(() => {
       const checkAuth = async () => {
         try {
-          const response = await axios.get("http://localhost:3000/userAuth", { withCredentials: true });
+          const response = await axios.get("https://aimarinebackend.vercel.app/userAuth", { withCredentials: true });
           console.log("authresposne",response)
           if (!response.data.authenticated) {
             navigate('/Login');

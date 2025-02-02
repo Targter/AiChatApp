@@ -1,8 +1,9 @@
-import { memo, useEffect } from "react";
+import React, { memo, useEffect } from "react";
 import { ChatWindow } from "../components/ChatWindow";
 import { Sidebar } from "../components/Sidebar";
 import { Navbar } from "../components/Navbar";
 import { useSidebarStore } from "../store/useStore";
+import UpgradeToPremium from "../components/UpgradeToPremium";
 // import axios from 'axios';
 import withAuthCheck from "../Wrapper/AuthApp";
 // import { useNavigate } from 'react-router-dom';
@@ -32,6 +33,7 @@ const Pagecon = () => {
         {isSidebarOpen && <MemoizedSidebar />}
         <MemoizedChatWindow />
       </div>
+      <UpgradeToPremium />
     </div>
   );
 };

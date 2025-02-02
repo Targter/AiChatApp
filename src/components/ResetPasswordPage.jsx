@@ -101,7 +101,7 @@ function ResetPasswordPage() {
   };
 
   return (
-    <div className="flex justify-center items-center min-h-screen bg-gray-100">
+    <div className="flex justify-center items-center min-h-screen bg-gray-500">
       <div className="bg-white p-8 rounded-lg shadow-lg w-96 text-black">
         <h2 className="text-2xl font-semibold mb-6 text-center">
           Reset Password
@@ -130,7 +130,7 @@ function ResetPasswordPage() {
             )}
             <button
               type="submit"
-              className="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition"
+              className="w-full py-3 bg-gray-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition"
             >
               Request OTP
             </button>

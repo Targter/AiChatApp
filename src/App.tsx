@@ -1,12 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Pagecon from './page/Pagecon';
+import React from 'react';
 import RegisterUser from "./components/RegisterUser"
 import Login from "./components/Login"
 // import 'regenerator-runtime/runtime';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ResetPasswordPage from "/src/components/ResetPasswordPage";
-// src\page\Page1.tsx
+import { PremiumBanner } from './components/PremiumBanner';
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
             <Route path="/"
             element={<Pagecon /> }
           />
+          <Route path='/subscription' element ={<PremiumBanner/>}/>
           </Routes>
     </Router>
     <ToastContainer />

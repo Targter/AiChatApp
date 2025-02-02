@@ -1,7 +1,7 @@
 import React from "react";
 import { useCallback, useEffect, useState, memo } from "react";
 import { Mic } from "lucide-react";
-import { useStore, useProcessingStore } from "../store/useStore";
+import { useStore, useProcessingStore, useUIStore } from "../store/useStore";
 import "regenerator-runtime/runtime";
 // import {ReactTyped}  from "react-typed";
 import SpeechRecognition, {
@@ -17,6 +17,8 @@ const ChatInput = memo(() => {
   const { getIsProcessing, setIsProcessing } = useProcessingStore();
   //   const { typingComplete } = useTypingStore();
   const [isRecording, setIsRecording] = useState(false);
+
+  const { chatStarted, setChatStarted } = useUIStore(); // Zustand state for UI positioning
 
   const { transcript, resetTranscript, browserSupportsSpeechRecognition } =
     useSpeechRecognition();
@@ -70,8 +72,18 @@ const ChatInput = memo(() => {
   }, [transcript, currentChat, addMessage, resetTranscript]);
 
   return (
-    <div className="p-4  ">
-      <div className="flex space-x-2">
+    <div
+      className={`w-full p-5 ${
+        chatStarted
+          ? "flex itmes-end justify-center  p-4"
+          : "flex justify-center "
+      }`}
+    >
+      <div
+        className={`flex space-x-2 bg-gray-900 p-6 rounded-2xl  ${
+          chatStarted ? "w-[70%]" : "w-[35%]"
+        }`}
+      >
         <button
           onClick={toggleRecording}
           className={`p-2 rounded-full ${

@@ -17,7 +17,7 @@ const Login = () => {
     try {
       // Send POST request to the backend
       const response = await axios.post(
-        "https://aimarinebackend.vercel.app/Login",
+        "http://localhost:3000/Login",
         {
           email: email,
           password: password,
@@ -46,7 +46,7 @@ const Login = () => {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-gray-600">
       <div className="bg-white p-8 rounded-lg shadow-lg w-96">
         <h2 className="text-2xl font-semibold mb-6 text-center">Login</h2>
         <form onSubmit={handleLoginSubmit}>
@@ -91,7 +91,7 @@ const Login = () => {
           {/* Login Button */}
           <button
             type="submit"
-            className="w-full py-3 bg-blue-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition"
+            className="w-full py-3 bg-gray-500 text-white font-semibold rounded-lg hover:bg-blue-600 transition"
           >
             Login
           </button>

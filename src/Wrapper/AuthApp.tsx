@@ -6,24 +6,27 @@ const withAuthCheck = (WrappedComponent: React.ComponentType) => {
   return (props: any) => {
     const [isAuthenticated, setIsAuthenticated] = useState<boolean | null>(null);
      const setUserData = useUserStore((state) => state.setUserData);
-
+    const {subscriptionEndDate} = useUserStore()
     const navigate = useNavigate();
 
     useEffect(() => {
       const checkAuth = async () => {
         try {
-          const response = await axios.get("https://aimarinebackend.vercel.app/userAuth", { withCredentials: true });
+          const response = await axios.get("http://localhost:3000/userAuth", { withCredentials: true });
           console.log("authresposne",response)
           if (!response.data.authenticated) {
             navigate('/Login');
           } else {
             setIsAuthenticated(true);
             const userData = response.data.user;
+            console.log(userData.subscriptionEndDate)
             setUserData({
               userId: userData._id,
               username: userData.username,
               email: userData.email,
               subscriptionType: userData.subscriptionType,
+              subscriptionEndDate: userData.subscriptionEndDate ? new Date(userData.subscriptionEndDate) : null,
+
             });
           }
         } catch (error) {

@@ -38,15 +38,10 @@ function RegisterUser() {
       // Request OTP
       if (name && email && password) {
         try {
-          const response = await axios.post(
-            "https://aimarinebackend.vercel.app/Register",
-            {
-              email: email,
-            },
-            {
-              withCredentials: true, // Include cookies
-            }
-          );
+          const response = await axios.post("http://localhost:3000/Register", {
+            email: email,
+            // withCredentials: true, // Include cookies
+          });
           console.log(response);
           if (response.status === 200) {
             setOtpSent(true);
@@ -68,18 +63,12 @@ function RegisterUser() {
       // Verify OTP
       if (otp.length === 6) {
         try {
-          const response = await axios.post(
-            "https://aimarinebackend.vercel.app/verifyOtp",
-            {
-              email: email,
-              otp: otp,
-              username: name,
-              password: password,
-            },
-            {
-              withCredentials: true, // Include cookies
-            }
-          );
+          const response = await axios.post("http://localhost:3000/verifyOtp", {
+            email: email,
+            otp: otp,
+            username: name,
+            password: password,
+          });
           console.log(response);
           if (response.status === 200) {
             setOtpVerified(true);
@@ -120,7 +109,7 @@ function RegisterUser() {
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex items-center justify-center min-h-screen bg-gray-500">
       <div className="bg-white p-8 rounded-lg shadow-lg w-96 text-black">
         <h2 className="text-2xl font-semibold mb-6 text-center">Register</h2>
         <form onSubmit={handleOtpRequestOrVerify}>

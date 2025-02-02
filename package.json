@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@tailwindcss/typography": "^0.5.16",
     "axios": "^1.7.9",
     "clsx": "^2.1.0",
     "lucide-react": "^0.344.0",
@@ -21,7 +22,12 @@
     "react-spinners": "^0.15.0",
     "react-toastify": "^11.0.2",
     "react-typed": "^2.0.12",
+    "react-typing-effect": "^2.0.5",
     "regenerator-runtime": "^0.14.1",
+    "rehype-raw": "^7.0.0",
+    "remark": "^15.0.1",
+    "remark-gfm": "^4.0.0",
+    "remark-html": "^16.0.1",
     "tailwind-merge": "^2.2.1",
     "zustand": "^4.5.2"
   },
